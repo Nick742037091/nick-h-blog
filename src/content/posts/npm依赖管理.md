@@ -1,7 +1,7 @@
 ---
 title: npm依赖管理
 published: 2025-01-19
-description: ''
+description: '更好地管理npm依赖，避免生产和本地开发出现依赖版本差异'
 image: '../../assets/images/articles/npm依赖管理/npm.jpg'
 tags: ['工程化','npm']
 category: '前端'
