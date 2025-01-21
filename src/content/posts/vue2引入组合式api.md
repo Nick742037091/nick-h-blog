@@ -124,7 +124,7 @@ import { ref } from "vue";
 
 ## 总结
 1. vue2.7版本使用组合式api更方便，vue2.7以下也能使用插件引入，也不麻烦。
-2. 引入组合式api之后，强烈建议把typesciprt也引入。vue最舒适的开发方式是`组合式api` + `script setup` + `typescript`。
+2. 引入组合式api之后，强烈建议把typesciprt也引入，[参考](/posts/vue2引入typescript/)。vue最舒适的开发方式是`组合式api` + `script setup` + `typescript`。
 3. vue升级到2.7版本调整内容挺多，需要谨慎考虑。
 
 
