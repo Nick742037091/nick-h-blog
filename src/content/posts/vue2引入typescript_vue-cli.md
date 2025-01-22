@@ -1,5 +1,5 @@
 ---
-title: vue2引入typescript
+title: vue2引入typescript(vue-cli篇)
 published: 2025-01-21
 description: '升级vue2项目，在尽量缩小改动范围的情况下，引入typescript'
 image: '../../assets/images/articles/vue2引入组合式api/vuejs.jpg'
@@ -7,9 +7,9 @@ tags: ['vue','vue2','typescript']
 category: '前端'
 lang: 'zh_CN'
 ---
-# vue2引入typescript(vue-cli篇)
 
-## 安装typescript相关依赖
+# 安装typescript相关依赖
+## vue add 自动化安装
 通过@vue/cli的`vue add`命令安装，可以自动补充和typescript关联的依赖，避免版本号不对应导致的冲突
 ```
 vue add typescript
@@ -96,7 +96,7 @@ declare module "*.vue" {
 }
 ```
 
-### 调整main.js
+## 调整入口文件
 将main.js该为main.ts，加入@ts-nocheck声明，临时绕过ts检测，后续再完善。
 ```main.js
 // @ts-nocheck
@@ -107,7 +107,7 @@ declare module "*.vue" {
 :::
 
 
-## IDE类型补全(可选)
+# IDE类型补全(可选)
 如果使用了unplugin-vue2-script-setup插件，为了使vue office插件能在template中获取ts类型，需要做以下调整：
 1. 安装@vue/runtime-dom
 ```shell
@@ -126,7 +126,7 @@ yarn add -D @vue/runtime-dom
 }
 ```
 
-## 总结
+# 总结
 1. vue2手动安装typescript插件还是挺麻烦的，特别是需要与eslint兼容，不同版本容易出现冲突，建议使用`vue add typescript`进行自动化处理，然后再进行微调。
 2. 使用`unplugin-vue2-script-setup`时，模板上的ts类型推导功能还不够完善，需要搭配`@vue/runtime-dom`使用。
 
