@@ -4,7 +4,7 @@ pipeline {
       inheritFrom 'nodejs base'
       containerTemplate {
         name 'nodejs'
-        image 'docker.1ms.run'
+        image 'docker.1ms.run/node:18.19.0'
       }
     }
   }
