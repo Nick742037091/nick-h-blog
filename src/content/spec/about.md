@@ -5,9 +5,8 @@
 * 靠写Vue生活，更爱React。
 * 能用Nest.js写后端接口。
 * 用Next.js做服务端渲染也不在话下。
-* 目前在研究k8s+ci/cd。
+* 熟悉k8s+ci/cd。
 * Android/iOS有原生开发基础，计划重学ReactNative。 
 
 ## 生活
 * 已婚已育，幸福美满。
-* 追求WLB。
