@@ -26,7 +26,7 @@ lang: 'zh_CN'
 1. 公网IP是必须的
 2. 推荐使用`16G内存`的服务器，否则安装KubeSphere可能会失败。
 3. 安装Linux系统，我使用的是`Ubuntu`。
-4. 使用root账号登录
+4. 使用root账号登录，这是必须的，否则有些流程会安装失败
 
 :::warning
 `腾讯云`默认创建主机名称是`VM-xxx`，存在大写字母，创建Kubernetes集群会失败，所以需要修改主机名称
@@ -49,6 +49,11 @@ reboot
 ```bash
 export KKZONE=cn
 ```
+:::warning
+设置变量只在当前登录账号生效，下面的`apt install`和`./kk create cluster`命令必须用root账号执行。
+
+如果当前登录账号账号不是root账号，执行`sudo apt install`和`sudo ./kk create cluster`获取到的`KKZONE`环境变量就不是`cn`，安装速度就会很慢。
+:::
 ## 安装KubeKey
 ```bash
 # 会生成 KubeKey 二进制文件 kk
