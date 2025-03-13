@@ -19,7 +19,8 @@ lang: 'zh_CN'
 `Proxy`和`Oject.defineProperty`相比，可以实现更全面的响应式处理：
 1. 都可以拦截`获取属性值`和`设置属性值`这两个操作。
 2. `Proxy`支持拦截`动态属性`，包括`添加属性`和`删除属性`两个操作，`Oject.defineProperty`不可以，数组的`索引`本质上属于动态属性，因此数组通过`索引`赋值也没法被`Oject.defineProperty`拦截到。
-3. `Proxy`可以直接劫持整个对象，而`Object.defineProperty`只能劫持对象的单个属性，如果需要整个对象实现响应式，就需要遍历对象的每个属性，并使用`Object.defineProperty`进行劫持。
+3. `Proxy`可以拦截函数，`Object.defineProperty`不可以，需要通过重写实现数组函数拦截功能。
+4. `Proxy`可以直接劫持整个对象，而`Object.defineProperty`只能劫持对象的单个属性，如果需要整个对象实现响应式，就需要遍历对象的每个属性，并使用`Object.defineProperty`进行劫持。
 
 `Vue2`和`Vue3`依赖收集和视图更新的实现方式本质上是一样的，以下以`Vue3`为例进行说明：
 
