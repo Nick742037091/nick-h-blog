@@ -53,6 +53,11 @@ BFC指的是块级格式化上下文，可用于修复以下问题：
 ## 防抖
 在设定时间内再次调用触发，会重新计时，在计时时间结束之后执行函数。
 
+### 应用场景 
+
+* 搜索框输入后搜索
+* 表单输入框输入后验证
+
 ### 实现
 ```ts
 /**
@@ -79,6 +84,13 @@ export function debounce(fn, timeout, flag) {
 :::tip
 函数执行的时间差超过设定时间，不是等于约定时间。
 :::
+
+### 应用场景
+
+* 滚动监控
+* 鼠标移动监听
+* 浏览器窗口大小监听
+
 
 ### 方案1 时间戳实现
 首次触发直接调用，但是在设定时间能触发的不会执行，因此会丢失最后一次触发。
@@ -138,3 +150,31 @@ export function throttle(fn, timeout) {
   }
 }
 ```
+
+# 手写apply
+
+## 要点
+* 在函数原型挂apply，可以直接通过函数名调用apply
+* 执行对象的函数属性，this指向对象
+
+```js
+Function.prototype.apply = function (context, args) {
+  // 入参无context时指向window
+  context = context || window
+  // 用Symbol创建唯一临时函数名称，在调用函数之后删除
+  const fn = Symbol()
+  // 对象函数属性指向this，用于执行
+  context[fn] = this
+  const result = context[fn](...args)
+  // 执行函数之后删除临时函数名称
+  delete result[fn]
+  return result
+}
+
+```
+
+#  箭头函数和普通函数区别
+* 箭头函数this指向定义时所在的对象，普通函数this指向运行时所在的对象
+* 箭头函数不能用作构造函数
+* 箭头函数不能使用arguments对象
+
