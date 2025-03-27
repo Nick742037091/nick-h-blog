@@ -167,7 +167,7 @@ Function.prototype.apply = function (context, args) {
   context[fn] = this
   const result = context[fn](...args)
   // 执行函数之后删除临时函数名称
-  delete result[fn]
+  delete context[fn]
   return result
 }
 
@@ -176,5 +176,5 @@ Function.prototype.apply = function (context, args) {
 #  箭头函数和普通函数区别
 * 箭头函数this指向定义时所在的对象，普通函数this指向运行时所在的对象
 * 箭头函数不能用作构造函数
-* 箭头函数不能使用arguments对象
+* 箭头函数不能使用arguments对象，需要使用rest参数替代
 
