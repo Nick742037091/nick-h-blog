@@ -6,6 +6,8 @@ image: '../../assets/images/articles/面试题-Vue篇/vuejs.jpg'
 tags: ['vue','面试']
 category: '前端'
 lang: 'zh_CN'
+draft: true
+
 ---
 
 
